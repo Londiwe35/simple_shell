@@ -4,6 +4,7 @@
  * clear_info - initialize
  * @info: struct address of the initializer
  */
+
 void clear_info(info_t *info)
 {
 	info->arg = NULL;
@@ -17,9 +18,10 @@ void clear_info(info_t *info)
  * @info: struct address
  * @av: argument vector
  */
+
 void set_info(info_t *info, char **av)
 {
-	int i = 0;
+	int a = 0;
 
 	info->fname = av[0];
 	if (info->arg)
@@ -34,9 +36,9 @@ void set_info(info_t *info, char **av)
 			info->argv[1] = NULL;
 			}
 		}
-		for (i = 0; info->argv && info->argv[i]; i++)
+		for (a = 0; info->argv && info->argv[a]; a++)
 			;
-		info->argc = i;
+		info->argc = a;
 
 		replace_alias(info);
 		replace_vars(info);
@@ -48,6 +50,7 @@ void set_info(info_t *info, char **av)
  * @info: struct address
  * @all: true if freeing all fields
  */
+
 void free_info(info_t *info, int all)
 {
 	ffree(info->argv);
@@ -71,4 +74,3 @@ void free_info(info_t *info, int all)
 		_putchar(BUF_FLUSH);
 	}
 }
-
